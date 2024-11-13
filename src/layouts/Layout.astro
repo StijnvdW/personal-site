@@ -13,26 +13,48 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<nav class="bg-yellow-800">
-			<div class="mx-auto max-w-7xl">
+		<nav class=" mt-4">
+			<div class="mx-auto max-w-5xl flex justify-start">
 				<div class="flex justify-center">
-					<div class="flex space-x-4">
-						<a href="#">About me</a>
-						<a href="#">Blog</a>
-						<a href="#">Projects</a>
-						<a href="#">Reading list</a>
-						<a href="#">Contact</a>
+					<div class="flex space-x-6 nav-items">
+						<a class="nav-item" href="#">About me</a>
+						<a class="nav-item" href="#">Blog</a>
+						<a class="nav-item" href="#">Projects</a>
+						<a class="nav-item" href="#">Reading list</a>
+						<a class="nav-item" href="#">Contact</a>
 					</div>
 				</div>
 			</div>
 		</nav>
 	</head>
 	<body>
-		<slot />
+		<div class="mx-auto max-w-5xl">
+			<slot />
+		</div>
 	</body>
 	<footer>
 		
 	</footer>
+	<style>
+		*{
+			font-family: "JetBrains Mono", monospace;
+		}
+		.nav-items {
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-size: 1.25rem;
+			font-style: normal;
+			
+			color: #757171;
+		}
+
+		.nav-item:hover {
+			text-decoration-line: underline;
+		}
+	</style>
 </html>
