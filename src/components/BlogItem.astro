@@ -3,18 +3,17 @@ interface Props {
     title: string,
     date: string,
     summary: string,
-    foto: typeof imageMetadata,
     url: string
 }
 
-import { Image } from 'astro:assets';
-import { imageMetadata } from 'astro/assets/utils';
 
+const { title , date, summary, url} = Astro.props;
 
-const { title , date, summary, foto, url} = Astro.props;
 ---
 <div class="flex gap-10">
-    <Image class="rounded-full max-h-full m-auto size-40" src={foto} alt="Cartoon face of Stijn." />
+    <!--
+    <Image class="rounded-full max-h-full m-auto size-40" src={localImage} alt="Cartoon face of Stijn." />
+     -->
     <div>
         <h2>{title}</h2>
         <p class="blog-date">{date}</p>

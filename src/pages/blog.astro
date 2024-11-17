@@ -1,16 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import BlogItem from '../components/BlogItem.astro';
-import blogBeer from '../../src/images/Beer.png';
-import blogCroissant from '../../src/images/Croissant.png';
+import Layout from '../layouts/Layout.astro';
+const allBlogPosts = await Astro.glob('./posts/*.md');
 ---
 
 <Layout title="Welcome to my website.">
 	<main class="mt-16">
-            <h1>What's up?</h1>
+            <h1>Some of my thoughts.</h1>
             <div class="grid grid-cols-1 gap-12">
+                {
+                    allBlogPosts.map((blogPost) => <BlogItem title={blogPost.frontmatter.title} foto={blogPost.frontmatter.image} date={blogPost.frontmatter.date} summary={blogPost.frontmatter.summary} url={blogPost.frontmatter.url} />)
+                }
+                <!--
                 <BlogItem title="How much for a beer?" foto={blogBeer} date="December 6, 2022" summary="Praesent viverra, mi quis blandit accumsan, metus ipsum mollis erat, vitae aliquam felis dolor vitae orci. Mauris vestibulum posuere nisi euismod gravida. Nulla facilisi. Morbi porta ultrices aliquet. Sed ac condimentum purus. Etiam quis imperdiet risus. Curabitur laoreet tincidunt justo. Fusce semper, dui sit amet accumsan sodales, dolor justo porta sapien, a tempor eros ligula at diam. Aenean interdum sodales lectus eu tristique. Integer egestas est congue faucibus ultricies." url="/posts/post-beer"/>
-                <BlogItem title="How much for a croissant?" foto={blogCroissant} date="November 11, 2022" summary="Praesent viverra, mi quis blandit accumsan, metus ipsum mollis erat, vitae aliquam felis dolor vitae orci. Mauris vestibulum posuere nisi euismod gravida. Nulla facilisi. Morbi porta ultrices aliquet. Sed ac condimentum purus. Etiam quis imperdiet risus. Curabitur laoreet tincidunt justo. Fusce semper, dui sit amet accumsan sodales, dolor justo porta sapien, a tempor eros ligula at diam. Aenean interdum sodales lectus eu tristique. Integer egestas est congue faucibus ultricies." url="/posts/post-croissant"/>
+                <BlogItem title="How much for a croissant?" foto={blogCroissant} date="November 11, 2022" summary="Praesent viverra, mi quis blandit accumsan, metus ipsum mollis erat, vitae aliquam felis dolor vitae orci. Mauris vestibulum posuere nisi euismod gravida. Nulla facilisi. Morbi porta ultrices aliquet. Sed ac condimentum purus. Etiam quis imperdiet risus. Curabitur laoreet tincidunt justo. Fusce semper, dui sit amet accumsan sodales, dolor justo porta sapien, a tempor eros ligula at diam. Aenean interdum sodales lectus eu tristique. Integer egestas est congue faucibus ultricies." url="/posts/post-croissant"/> -->
             </div>
 	</main>
 </Layout>
