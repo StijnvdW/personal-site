@@ -5,6 +5,13 @@
 h1 {
     font-weight: bold;
     font-size: 1.875rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.875rem;
 }
 
 .nav-items {
@@ -18,4 +25,16 @@ h1 {
 
 .nav-item:hover {
     text-decoration-line: underline;
+}
+
+.blog-date {
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: #757171;
+    margin-bottom: 0.5rem;
+}
+
+.read-more {
+    font-size: 1rem;
+    text-decoration: underline;
 }

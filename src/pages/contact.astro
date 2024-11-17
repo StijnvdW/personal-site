@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import localDesigner from '../../src/images/Designer.jpeg';
+---
+
+<Layout title="Welcome to my website.">
+	<main class="mt-16">
+        <h1>Hit me up!</h1>
+        
+        <p>You can find me all over the internet:</p>
+        
+        <ul class="ml-4 mt-6">
+            <li class="mb-2">> <a style="text-decoration: underline;" href="https://bsky.app/profile/stijnvdw.bsky.social" target="_blank">BlueSky</a></li>
+            <li class="mb-2">> <a style="text-decoration: underline;" href="https://mastodon.social/@stijnvanderwielen" target="_blank">Mastodon</a></li>
+            <li class="mb-2">> <a style="text-decoration: underline;" href="https://www.linkedin.com/in/stijn-van-der-wielen-34178522/" target="_blank">LinkedIn</a></li>
+            <li class="mb-2">> <a style="text-decoration: underline;" href="https://www.strava.com/athletes/7212244" target="_blank">Strava</a></li>
+        </ul>
+	</main>
+</Layout>

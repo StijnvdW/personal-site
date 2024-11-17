@@ -6,6 +6,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <!doctype html>
@@ -24,11 +27,11 @@ const { title } = Astro.props;
 			<div class="mx-auto max-w-5xl flex justify-start">
 				<div class="flex justify-center">
 					<div class="flex space-x-6 nav-items">
-						<a class="nav-item" href="#">About me</a>
-						<a class="nav-item" href="#">Blog</a>
-						<a class="nav-item" href="#">Projects</a>
-						<a class="nav-item" href="#">Reading list</a>
-						<a class="nav-item" href="#">Contact</a>
+						<a class={currentPath === "" ? "nav-item active": "nav-item"} href="/">About me</a>
+						<a class={currentPath === "blog" ? "nav-item active": "nav-item"} href="/blog">Blog</a>
+						<a class={currentPath === "projects" ? "nav-item active": "nav-item"} href="#">Projects</a>
+						<a class={currentPath === "reading" ? "nav-item active": "nav-item"} href="#">Reading list</a>
+						<a class={currentPath === "contact" ? "nav-item active": "nav-item"} href="/contact">Contact</a>
 					</div>
 				</div>
 			</div>
@@ -42,4 +45,9 @@ const { title } = Astro.props;
 	<footer>
 		
 	</footer>
+	<style>
+		.active {
+			text-decoration: underline;
+		}
+	</style>
 </html>
