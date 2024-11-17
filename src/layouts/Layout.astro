@@ -28,7 +28,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
 				<div class="flex justify-center">
 					<div class="flex space-x-6 nav-items">
 						<a class={currentPath === "" ? "nav-item active": "nav-item"} href="/">About me</a>
-						<a class={currentPath === "blog" ? "nav-item active": "nav-item"} href="/blog">Blog</a>
+						<a class={(currentPath === "blog" || currentPath.indexOf('post') !== -1) ? "nav-item active": "nav-item"} href="/blog">Blog</a>
 						<a class={currentPath === "projects" ? "nav-item active": "nav-item"} href="#">Projects</a>
 						<a class={currentPath === "reading" ? "nav-item active": "nav-item"} href="#">Reading list</a>
 						<a class={currentPath === "contact" ? "nav-item active": "nav-item"} href="/contact">Contact</a>
