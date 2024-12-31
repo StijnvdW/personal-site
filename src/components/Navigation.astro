@@ -1,0 +1,85 @@
+---
+import '../../src/styles/global.css';
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<nav class="mt-4">
+    <div class="mx-auto max-w-5xl flex justify-end lg:justify-start">
+        <div class="hidden lg:flex justify-center">
+            <div class="flex space-x-6 nav-items">
+                <a class={currentPath === "" ? "nav-item active": "nav-item"} href="/">About me</a>
+                <a class={(currentPath === "blog" || currentPath.indexOf('post') !== -1) ? "nav-item active": "nav-item"} href="/blog">Blog</a>
+                <a class={currentPath === "projects" ? "nav-item active": "nav-item"} href="#">Projects</a>
+                <a class={currentPath === "reading" ? "nav-item active": "nav-item"} href="#">Reading list</a>
+                <a class={currentPath === "contact" ? "nav-item active": "nav-item"} href="/contact">Contact</a>
+            </div>
+        </div>
+        <div class="flex lg:hidden">
+            <button 
+              type="button" 
+              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              id="menu-button"
+              aria-expanded="false"
+            >
+                <span class="sr-only">Open main menu</span>
+                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <div class="lg:hidden hidden" role="dialog" aria-modal="true" id="mobile-menu">
+        <div class="fixed inset-0 z-10 bg-black/30" id="backdrop"></div>
+        <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-2.5 pb-2.5 pt-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div class="flex items-center justify-between">
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Blog</span>
+                </a>
+                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="close-button">
+                    <span class="sr-only">Close menu</span>
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="mt-6 flow-root">
+                <div class="-my-6 divide-y divide-gray-500/10">
+                    <div class="space-y-2 py-6">
+                        <a href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">About me</a>
+                        <a href="/blog" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Blog</a>
+                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Projects</a>
+                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Reading list</a>
+                        <a href="/contact" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeButton = document.getElementById('close-button');
+    const backdrop = document.getElementById('backdrop');
+
+    function toggleMenu() {
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('hidden');
+        }
+        document.body.classList.toggle('overflow-hidden');
+    }
+
+    if (menuButton) {
+        menuButton.addEventListener('click', toggleMenu);
+    }
+    if (closeButton) {
+        closeButton.addEventListener('click', toggleMenu);
+    }
+    if (backdrop) {
+        backdrop.addEventListener('click', toggleMenu);
+    }
+</script>
