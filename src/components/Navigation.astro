@@ -1,19 +1,44 @@
 ---
 import '../../src/styles/global.css';
 
+export interface NavItem {
+    title: string;
+    href: string;
+}
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+const navigationItems: Array<NavItem>= [
+    {
+        title: 'About me',
+        href: '/'
+    },
+    {
+        title: 'Blog',
+        href: '/blog'
+    },
+    {
+        title: 'Projects',
+        href: '#'
+    },
+    {
+        title: 'Reading list',
+        href: '#'
+    },
+    {
+        title: 'Contact',
+        href: '/contact'
+    }
+];
 ---
 
 <nav class="mt-4">
     <div class="mx-auto max-w-5xl flex justify-end lg:justify-start">
         <div class="hidden lg:flex justify-center">
             <div class="flex space-x-6 nav-items">
-                <a class={currentPath === "" ? "nav-item active": "nav-item"} href="/">About me</a>
-                <a class={(currentPath === "blog" || currentPath.indexOf('post') !== -1) ? "nav-item active": "nav-item"} href="/blog">Blog</a>
-                <a class={currentPath === "projects" ? "nav-item active": "nav-item"} href="#">Projects</a>
-                <a class={currentPath === "reading" ? "nav-item active": "nav-item"} href="#">Reading list</a>
-                <a class={currentPath === "contact" ? "nav-item active": "nav-item"} href="/contact">Contact</a>
+                {navigationItems.map((item) => (
+                    <a class={currentPath === "" ? "nav-item active": "nav-item"} href={item.href}>{item.title}</a>
+                ))}
             </div>
         </div>
         <div class="flex lg:hidden">
@@ -48,11 +73,9 @@ const currentPath = pathname.slice(1);
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6 nav-items">
-                        <a href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 nav-item" >About me</a>
-                        <a href="/blog" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 nav-item">Blog</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 nav-item">Projects</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50">Reading list</a>
-                        <a href="/contact" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50">Contact</a>
+                        {navigationItems.map((item) => (
+                            <a class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50" href={item.href}>{item.title}</a>
+                        ))}
                     </div>
                 </div>
             </div>
