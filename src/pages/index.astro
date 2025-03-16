@@ -5,9 +5,9 @@ import localDesigner from '../../src/images/Designer.jpeg';
 ---
 
 <Layout title="Welcome to my website.">
-	<main class="mt-16">
-		<div class="grid gap-20 grid-cols-2">
-			<div>
+	<main class="md:mt-16">
+		<div class="grid gap-20 md:grid-cols-2">
+			<div class="grid">
 				<h1>Who am I?</h1>
 				<div>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -18,7 +18,10 @@ import localDesigner from '../../src/images/Designer.jpeg';
 					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</div>
 			</div>
-			<Image class="rounded-full w-80 h-80" src={localDesigner} alt="Cartoon face of Stijn." />
+			<div class="flex justify-center">
+				<Image class="rounded-full w-80 h-80 flex" src={localDesigner} alt="Cartoon face of Stijn." />
+			</div>
+			
 		</div>
 	</main>
 </Layout>
