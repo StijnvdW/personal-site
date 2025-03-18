@@ -4,6 +4,7 @@ import '../../src/styles/global.css';
 export interface NavItem {
     title: string;
     href: string;
+    show: boolean;
 }
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -11,23 +12,28 @@ const currentPath = pathname.slice(1);
 const navigationItems: Array<NavItem>= [
     {
         title: 'About me',
-        href: '/'
+        href: '/',
+        show: true
     },
     {
         title: 'Blog',
-        href: '/blog'
+        href: '/blog',
+        show: true
     },
     {
         title: 'Projects',
-        href: '/'
+        href: '/',
+        show: false
     },
     {
         title: 'Reading list',
-        href: '/'
+        href: '/',
+        show: false
     },
     {
         title: 'Contact',
-        href: '/contact'
+        href: '/contact',
+        show: true
     }
 ];
 ---
@@ -36,7 +42,7 @@ const navigationItems: Array<NavItem>= [
     <div class="mx-auto max-w-5xl flex justify-end lg:justify-start">
         <div class="hidden lg:flex justify-center">
             <div class="flex space-x-6 nav-items">
-                {navigationItems.map((item) => (
+                {navigationItems.filter(item => item.show).map((item) => (
                     <a class={currentPath === "" ? "nav-item active": "nav-item"} href={item.href}>{item.title}</a>
                 ))}
             </div>
