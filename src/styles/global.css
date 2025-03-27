@@ -23,6 +23,24 @@ h2 {
     color: #757171;
 }
 
+.logo {
+    font-weight: bold;
+    font-size: 1.875rem;
+    color: black;
+    position: relative;
+}
+
+.logo-line::after {
+    position: absolute;
+    content:'';
+    background-color: #64C9D8;
+    width: 100%;
+    height: 1.1rem;
+    top: 1.0rem;
+    left:1px;
+    z-index: -99;
+}
+
 .nav-item:hover {
     text-decoration-line: underline;
 }
