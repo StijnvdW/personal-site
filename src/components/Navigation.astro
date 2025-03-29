@@ -39,7 +39,7 @@ const navigationItems: Array<NavItem>= [
 ---
 
 <nav class="mt-4">
-    <div class="mx-auto max-w-5xl flex justify-end lg:justify-start">
+    <div class="mx-auto max-w-5xl flex lg:justify-start">
         <div class="hidden lg:flex justify-center">
             <div class="flex items-center space-x-6 nav-items">
                 <a class="nav-item" href="">
@@ -50,10 +50,15 @@ const navigationItems: Array<NavItem>= [
                 ))}
             </div>
         </div>
-        <div class="flex lg:hidden">
+        <div class="flex grow lg:hidden">
+            <a class="nav-item" href="">
+                <div class="logo logo-line">Stijn</div>
+            </a>
+            <div class="flex-1">
+            </div>
             <button 
             type="button" 
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              class="-m-2.5 flex-none inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               id="menu-button"
               aria-expanded="false"
             >
@@ -70,6 +75,7 @@ const navigationItems: Array<NavItem>= [
         <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-2.5 pb-2.5 pt-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
+                    <div class="logo logo-line">Stijn</div>
                     <span class="sr-only">Blog</span>
                 </a>
                 <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="close-button">
