@@ -88,7 +88,7 @@ const navigationItems: Array<NavItem>= [
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6 nav-items">
-                        {navigationItems.map((item) => (
+                        {navigationItems.filter(item => item.show).map((item) => (
                             <a class="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50" href={item.href}>{item.title}</a>
                         ))}
                     </div>
