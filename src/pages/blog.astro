@@ -1,7 +1,16 @@
 ---
+import type { MarkdownInstance } from 'astro';
 import BlogItem from '../components/BlogItem.astro';
 import Layout from '../layouts/Layout.astro';
-const allBlogPosts = await Astro.glob('./posts/*.md');
+
+interface Blog {
+    title: string;
+    date: string;
+    summary: string;
+    url: string;
+}
+
+const allBlogPosts = Object.values(import.meta.glob<MarkdownInstance<Blog>>('./posts/*.md', { eager: true }));
 ---
 
 <Layout title="Welcome to my website.">
