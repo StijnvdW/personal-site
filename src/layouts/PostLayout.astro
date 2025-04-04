@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title="Welcome to my website.">
+<Layout title={frontmatter.title}>
     <main class="mt-16">
         <h1>{frontmatter.title}</h1>
         <slot />

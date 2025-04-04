@@ -13,7 +13,7 @@ interface Blog {
 const allBlogPosts = Object.values(import.meta.glob<MarkdownInstance<Blog>>('./posts/*.md', { eager: true }));
 ---
 
-<Layout title="Welcome to my website.">
+<Layout title="Blog posts">
 	<main class="mt-16">
             <h1>Some of my thoughts.</h1>
             <div class="grid grid-cols-1 gap-12">
