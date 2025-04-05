@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-    <main class="mt-16">
+    <main class="md:mt-16">
         <h1>{frontmatter.title}</h1>
         <slot />
     </main>
