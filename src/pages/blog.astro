@@ -2,6 +2,7 @@
 import type { MarkdownInstance } from 'astro';
 import BlogItem from '../components/BlogItem.astro';
 import Layout from '../layouts/Layout.astro';
+import type { Blog } from '../models/Blog';
 
 const allBlogPosts = Object.values(import.meta.glob<MarkdownInstance<Blog>>('./posts/*.md', { eager: true }));
 ---
