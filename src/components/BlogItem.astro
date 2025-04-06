@@ -1,14 +1,9 @@
 ---
-interface Props {
-    title: string,
-    date: string,
-    summary: string,
-    url: string
-}
+import type { BlogItemProps } from '../models/BlogItemProps';
 
+interface Props extends BlogItemProps {}
 
 const { title , date, summary, url} = Astro.props;
-
 ---
 <div class="flex gap-10">
     <!--

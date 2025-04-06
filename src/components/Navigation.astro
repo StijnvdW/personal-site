@@ -1,11 +1,6 @@
 ---
 import '../../src/styles/global.css';
-
-export interface NavItem {
-    title: string;
-    href: string;
-    show: boolean;
-}
+import type { NavItem } from '../models/NavItem';
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
