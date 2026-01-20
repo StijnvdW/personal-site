@@ -12,7 +12,7 @@ const allBlogPosts = Object.values(import.meta.glob<MarkdownInstance<Blog>>('./p
             <h1>Some of my thoughts.</h1>
             <div class="grid grid-cols-1 gap-12">
                 {
-                    allBlogPosts.map((blogPost) => <BlogItem title={blogPost.frontmatter.title} date={blogPost.frontmatter.date} summary={blogPost.frontmatter.summary} url={blogPost.frontmatter.url} />)
+                    allBlogPosts.map((blogPost) => <BlogItem title={blogPost.frontmatter.title} date={blogPost.frontmatter.date} summary={blogPost.rawContent().toString().substring(0,500) + "..."} url={blogPost.frontmatter.url} />)
                 }
                 <!--
                 <BlogItem title="How much for a beer?" foto={blogBeer} date="December 6, 2022" summary="Praesent viverra, mi quis blandit accumsan, metus ipsum mollis erat, vitae aliquam felis dolor vitae orci. Mauris vestibulum posuere nisi euismod gravida. Nulla facilisi. Morbi porta ultrices aliquet. Sed ac condimentum purus. Etiam quis imperdiet risus. Curabitur laoreet tincidunt justo. Fusce semper, dui sit amet accumsan sodales, dolor justo porta sapien, a tempor eros ligula at diam. Aenean interdum sodales lectus eu tristique. Integer egestas est congue faucibus ultricies." url="/posts/post-beer"/>
