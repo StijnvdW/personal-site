@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
     font-family: "JetBrains Mono", monospace;
 }
@@ -19,7 +21,7 @@ h2 {
     font-weight: 400;
     font-size: 1.25rem;
     font-style: normal;
-    
+
     color: #757171;
 }
 
@@ -32,12 +34,12 @@ h2 {
 
 .logo-line::after {
     position: absolute;
-    content:'';
-    background-color: #64C9D8;
+    content: "";
+    background-color: #64c9d8;
     width: 100%;
     height: 1.1rem;
-    top: 1.0rem;
-    left:1px;
+    top: 1rem;
+    left: 1px;
     z-index: -99;
 }
 
