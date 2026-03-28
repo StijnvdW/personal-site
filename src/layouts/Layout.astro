@@ -20,9 +20,26 @@ const { title } = Astro.props;
         />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <script is:inline>
+            const theme = (() => {
+                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                    return localStorage.getItem('theme');
+                }
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    return 'dark';
+                }
+                return 'light';
+            })();
+          
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        </script>
         <Navigation />
     </head>
-    <body class="ml-2">
+    <body class="ml-2 dark:bg-black dark:text-white">
         <div class="mx-auto max-w-5xl">
             <slot />
         </div>

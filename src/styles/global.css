@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
     --color-text-light-gray: #757171;
 }
 
 * {
     font-family: "JetBrains Mono", monospace;
+}
+
+body {
+    @apply transition-colors duration-300;
+}
+
+h1, h2 {
+    @apply dark:text-white;
 }
 
 h1 {
@@ -27,6 +37,7 @@ h2 {
     font-style: normal;
 
     color: var(--color-text-light-gray);
+    @apply dark:text-gray-400;
 }
 
 .logo {
@@ -34,6 +45,7 @@ h2 {
     font-size: 1.875rem;
     color: black;
     position: relative;
+    @apply dark:text-white;
 }
 
 .logo-line::after {
@@ -45,10 +57,12 @@ h2 {
     top: 1rem;
     left: 1px;
     z-index: -99;
+    @apply dark:bg-[#3d8b99];
 }
 
 .nav-item:hover {
     text-decoration-line: underline;
+    @apply dark:text-white;
 }
 
 .blog-date {
@@ -56,9 +70,11 @@ h2 {
     font-size: 0.875rem;
     color: var(--color-text-light-gray);
     margin-bottom: 0.5rem;
+    @apply dark:text-gray-500;
 }
 
 .read-more {
     font-size: 1rem;
     text-decoration: underline;
+    @apply dark:text-gray-300;
 }
