@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --color-text-light-gray: #757171;
+}
+
 * {
     font-family: "JetBrains Mono", monospace;
 }
@@ -22,7 +26,7 @@ h2 {
     font-size: 1.25rem;
     font-style: normal;
 
-    color: #757171;
+    color: var(--color-text-light-gray);
 }
 
 .logo {
@@ -50,7 +54,7 @@ h2 {
 .blog-date {
     font-weight: bold;
     font-size: 0.875rem;
-    color: #757171;
+    color: var(--color-text-light-gray);
     margin-bottom: 0.5rem;
 }
 
