@@ -1,40 +1,43 @@
 ---
-import '../../src/styles/global.css';
-import Navigation from '../components/Navigation.astro';
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<Navigation></Navigation>
-	</head>
-	<body class="ml-2">
-		<div class="mx-auto max-w-5xl">
-			<slot />
-		</div>
-	</body>
-	<footer>
-		<div class="fixed bottom-0 w-full">
-			<div class="mx-auto max-w-5xl flex lg:justify-start border-t border-default pt-2 text-sm">
-				Copyright Stijn van der Wielen © 2025 | All rights reserved.
-			</div>
-		</div>
-		
-	</footer>
-	<style>
-		.active {
-			text-decoration: underline;
-		}
-	</style>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet"
+        />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <Navigation />
+    </head>
+    <body class="ml-2">
+        <div class="mx-auto max-w-5xl">
+            <slot />
+        </div>
+    </body><footer>
+        <div class="fixed bottom-0 w-full">
+            <div
+                class="mx-auto max-w-5xl flex lg:justify-start border-t border-default pt-2 text-sm"
+            >
+                Copyright Stijn van der Wielen © 2025 | All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <style>
+        .active {
+            text-decoration: underline;
+        }
+    </style>
 </html>
